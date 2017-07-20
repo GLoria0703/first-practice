@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .aa{
+            background: #ff0000;
+        }
+        .bb{
+            color: #0f0;
+        }
+    </style>
+</head>
+<body>
+<div id="div1">div1</div>
+
+<script src="jquery-1.11.2.js"></script>
+<script>
+    $(function(){
+        var oDiv1=document.getElementById('div1');
+        oDiv1.className="aa bb";
+
+//              $('#div1').addClass('aa').addClass('bb');
+
+        });
+</script>
+</body>
+</html>
+<!--
+1、所有jQuery的函数都要写在文档就绪函数里，不会被覆盖
+2、简写方式
+3、* 表示选中所有的元素
+4、> ：亲子代，空格：后代，+：兄弟选择器（后面的一个兄弟）~：后面所有的兄弟（也是兄弟选择器）
+5、eq(-1):倒数第一个，-2就是倒数第二个，从后面数 从零开始数
+6、even:偶数  odd：奇数
+7、first：li的第一个  last：最后一个
+8、gt: > 大于号  下标 大于一就是从第二个数
+ lt:< 小于号
+9、header：选择所有的标题，例如h1,h220、
+10、not：括号里是选择器，不会被选上，过滤用的
+11、root：网页里的根节点一定是HTML
+11、target：锚点
+在页面加载的时候已经完成 考虑执行顺序
+click是jQuery早期版本，on是现在的版本
+12、页面跳转以及URL变化的时候会出现前后按钮
+13、input 输入框
+14、原生对象必须用原生方法，jq对象必须用jq方法，但可以相互转化
+原生对象=》jq对象  $()
+jq对象=》原生对象 【0】 或者个体（0）
+15、onkeyup不会差一个
+16、value性能更高一些，速度更快
+17、内容筛选：contains
+18、transparent 透明的
+19、hidden：当前ID  type=hidden
+20、submit 提交
+21、first-child
+nth-child:第几个孩子 从一开始数
+22、setattribute：自定义属性 属性保存一些值
+一个参数是取值，两个参数是赋值 没有没有参数也是赋值
+保留原有样式 在新添一个
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-->

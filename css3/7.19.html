@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>啊~~五环</title>
+    <style>
+        *{
+            margin:0;
+            padding: 0;
+        }
+        .circle,.circle::after{
+            width:200px;
+            height: 200px;
+            border-radius: 50%;
+            border:10px solid;
+            position: absolute;
+        }
+        .circle::after{
+            content:"";
+            top: -10px;
+            left: -10px;
+        }
+        .pink{
+            top: 0;
+            left:0;
+            border-color: #ffcccc;
+        }
+        .pink.circle::after{
+            border-color: #ffcccc;
+            z-index: 1;
+            border-bottom-color:transparent ;
+        }
+
+        .blue{
+            top:0;
+            left:230px;
+            border-color: #b0e0e6;
+        }
+        .blue.circle::after{
+            border-color: #b0e0e6;
+            z-index: 1;
+            border-left-color: transparent;
+        }
+        .yellow {
+            top: 0;
+            left: 460px;
+            border-color: #fff38f;
+        }
+        .yellow.circle::after{
+            border-color: #fff38f;
+            z-index: 2;
+            border-left-color: transparent;
+        }
+        .green{
+            top: 110px;
+            left: 115px;
+            border-color: #9aff9a;
+        }
+        .green.circle::after{
+            border-color: #9aff9a;
+            border-right-color: transparent;
+        }
+        .orange{
+            top: 110px;
+            left: 345px;
+            border-color: #EF8743;
+        }
+        .orange.circle::after{
+            border-color: #EF8743;
+            z-index: 1;
+            border-top-color: transparent;
+        }
+
+    </style>
+</head>
+<body>
+<div class="circle pink"></div>
+<div class="circle blue"></div>
+<div class="circle yellow"></div>
+<div class="circle green"></div>
+<div class="circle orange"></div>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>输入框选中</title>
+</head>
+<body>
+<input type="text" id="search">
+<ul id="menu">
+    <li>明诚</li>
+    <li>季白</li>
+    <li>赵启平</li>
+</ul>
+
+</body>
+<script src="jquery-1.11.2.js"></script>
+<script>
+ $(function(){
+     $('#search').on('keyup',function(){
+     //                console.log(this.value);
+//                console.log($(this).val());
+         if(this.value!=""){
+             $('#menu li:contains('+this.value+')').css("background","red");
+         }else{
+             $('#menu li').css("background","transparent");
+         }
+     });
+ });
+
+</script>
+</html>
+<!--
+1、onkeyup 事件会在键盘按键被松开时发生。
+2、input如果想要获取元素的话，一定要用onkeyup,因为onkeypress,onkeydown在console的时候反应慢半拍
+3、原生方法传值是value，jq方法是.val（）
+
+-->

@@ -1,0 +1,183 @@
+#login a:hover {
+    text-decoration: underline;
+}
+#login, #header h1 {
+    color: #fff;
+    width: 380px;
+}
+#login a {
+    color: #fff;
+}
+#main-header #cart {
+    width: 260px;
+    height: 30px;
+    background: #000;
+    opacity: 0.5;
+    filter: alpha(opacity=50);
+    color: #fff;
+    text-align: center;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin-top: 25px;
+    line-height: 30px;
+}
+
+#header img {
+    vertical-align: middle;
+}
+
+.float {
+    float: left;
+}
+
+#main-header {
+    height: 100px;
+    line-height: 100px;
+    width: 100%;
+}
+
+#nav li {
+    width: 190px;
+    height: 40px;
+    background: #fa558f;
+    float: left;
+    text-align: center;
+    line-height: 40px;
+}
+#nav li:hover{
+    background: #ff0000;
+}
+#nav a {
+    color: #00ff00;
+}
+
+#nav.selected {
+    background: #3c3b3b;
+}
+#sub-menu {
+    width: 1140px;
+    height: 300px;
+    background: white;
+    margin-left: -190px;
+}
+#main-header p{
+    color:#ffffff;
+    position:relative;
+    right:190px;
+    top:35px;
+}
+#sub-menu div {
+    width: 228px;
+    height: 400px;
+    float: left;
+}
+
+#sub-menu a {
+    width: 100%;
+    height: 30px;
+    display: block;
+}
+
+#sub-menu {
+    display: none;
+}
+
+#makeup:hover #sub-menu {
+    display: block;
+}
+
+#sub-menu a:hover{
+    text-decoration: underline;
+}
+#footer{
+    height: 82px;
+    background: #fa558f;
+    line-height: 82px;
+}
+#footer h3,#footer h4{
+    color: #fff;
+}
+#footer h3{
+    float: left;
+}
+#footer h4{
+    float: right;
+}
+#header{
+    background: url("img/banner33.jpg") no-repeat center;
+    height: 250px;
+}
+#login-container form{
+    width: 570px;
+    height: 290px;
+    float: left;
+}
+#login-container h5{
+    color:#5d5959;
+    font-size: 20px;
+}
+#login-container label{
+    margin-top: 20px;
+    display: block;
+}
+#login-container label input{
+    width: 400px;
+    height: 38px;
+    outline: none;
+    text-indent: 10px;
+    font-size: 20px;
+}
+/* Ù–‘—°‘Ò∆˜*/
+#login-container input[value="login"]{
+    width: 114px;
+    height: 42px;
+    background: #EF8743;
+    color: #fff;
+}
+#login-container input[value="login"]:hover{
+    background: #ffffff;
+    color: #000000;
+    border: 1px solid #000000;
+}
+#login-container .btn{
+    font-size: 20px;
+    border: 0;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+#login-container .btn:hover{
+    border: 1px solid #000000;
+}
+#login-container input[value="login"]:hover{
+    background: #ffffff;
+    color: #000000;
+}
+#forget{
+    color: #5d5959;
+    text-decoration: underline;
+    margin-top: 20px;
+    display: block;
+}
+#register{
+    width: 540px;
+    float: right;
+}
+#register h3{
+    color:#EF8743;
+}
+#register p{
+    color: #999;
+    margin: 20px 0;
+}
+#register .btn{
+    width: 106px;
+    height: 42px;
+    background: #ffffff;
+    border: solid 1px #000000;
+}
+#register .btn:hover{
+    background: #EF8743;
+    border-color:#EF8743 ;
+    color: #ffffff;
+}

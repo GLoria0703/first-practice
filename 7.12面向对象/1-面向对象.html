@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    //cat类又是也叫作构造函数
+    function Cat(name) {          //this永远指向当前对象   这里的name是个参数
+        this.name = name;         //把名字又传给了属性  这里的this指的是cat1、cat2
+//        this.eat = function () {
+//            alert= ('haha');
+//        }
+    }
+
+        Cat.prototype.eat=function(){               //原型 在原型中改了什么添加了什么，之后都会继承
+            alert(this.name+'is eating!');    //原型链：当你定义一个函数的时候，将属性放在构造函数中，方法放在原型中
+        };
+          //cat这个类在原型中继承了eat这个方法
+    var cat1=new Cat('mmi '); //new出来的就是对象 就是类。
+    var cat2=new Cat('xiaohua'); //两个对象 new几次对象就是new了几次function
+    alert(cat2.name);
+    cat1.eat();
+</script>
+</body>
+</html>
+
+<!--//类的概念：具有相同的属性和方法的对象的集合 在js6之前没有类这个概念所以都用函数
+ 建议：当你看见函数名大写的时候 一般是定义类 定义一个类的话就用大写-->
+<!--//基于这个原型，创建出new出来的这个对象，它也默认会拥有原型里的东西
+为了不想总是new一个新东西占内存，又不想写两个function就用prototype

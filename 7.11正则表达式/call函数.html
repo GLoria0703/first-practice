@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    /*function aa(name) {//函数声明
+     alert(name);
+     }*/
+    //aa('lisi');
+
+    /*var aa = function (name) {//函数表达式
+     alert(name);
+     };*/
+
+    /*var aa = new Function( 'name', 'alert(name)');*/
+
+
+    //aa('lisi');
+
+
+
+    /*function aa(name, age) {//函数声明
+     console.log(this);
+     console.log(name);
+     console.log(age);
+     }*/
+
+    //aa.call({name: 'lisi'}, 'lisi', 12);
+    //aa.apply({name: 'lisi'}, ['lisi', 12]);
+
+    function aa() {
+        console.log(this);
+    }
+
+    aa.call({name: 'lisi'}); //aa();
+
+</script>
+</body>
+</html>
+<!--call函数的第一个参数是一个对象，这个对象会把函数里this的指针给改掉，如果不想指向window那就往call函数里放一个参数，
+这个参数也是一个对象，也就是call函数可以把第一个对象参数改变这里的this
+
+不经过特殊处理，this默认是指向window
+为了解决this指向window这一bug,call函数可以解决
+
+-->

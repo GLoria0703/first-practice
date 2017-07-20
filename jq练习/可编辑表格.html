@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        body {
+            font-size: 16px;
+        }
+
+        table {
+            border: 1px solid black;
+            border-collapse: collapse;
+            width: 400px;
+        }
+
+        table td, th {
+            width: 50%;
+            border: 1px solid black;
+            height: 30px;
+        }
+
+        tbody th {
+            background-color: #abc;
+        }
+    </style>
+</head>
+<body>
+<table>
+    <thead>
+    <tr>
+        <th colspan="2"> 鼠标点击表格就可以编辑</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <th>学号</th>
+        <th>姓名</th>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td class="editable">张三</td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td class="editable">李四</td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td class="editable">王五</td>
+    </tr>
+    <tr>
+        <td>4</td>
+        <td class="editable">赵六</td>
+    </tr>
+    </tbody>
+</table>
+
+<script src="jquery-1.11.2.js"></script>
+<script>
+        $(function(){
+           $(".editable").on("click",function(){
+
+               if($(this).has("input").length>0){
+                   return false;
+               }
+//               console.log($(this).has("input").length);
+
+            var $input=$("<input type='text'>").val(this.innerHTML);
+            $(this).empty().append($input);
+               $input.trigger("focus");
+           });
+        });
+</script>
+</body>
+</html>
+<!--
+has:筛选匹配元素集合中的那些有相匹配的选择器或DOM元素的后代元素。
+一个用于匹配元素的选择器字符串。
+如果里面有input就不再执行底下的
+trigger:根据绑定到匹配元素的给定的事件类型执行所有的处理程序和行为。
+如果不写return false那么输入框里出现的就会出现input type='text这句话
+大于0是因为出现input type='text这句话这句话会打印出来1，只要大于0就不执行了
+-->
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>回到顶部</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    body{
+        height: 2000px;
+    }
+    #top{
+        width: 50px;
+        height: 50px;
+        background: #ff5151;
+        text-align: center;
+        line-height: 50px;
+        cursor: pointer;
+        bottom: 100px;
+        right:10px;
+        position: fixed;
+    }
+</style>
+<body>
+<div id="top">王凯</div>
+
+<script src="jquery-1.11.2.js"></script>
+<script>
+    //原生方法
+//    var oTop=document.getElementById('top');
+//    oTop.onclick=function(){
+//        var timer=iSetInterval(function(){
+//            var iScrollTop=document.body.scrollTop||document.documentElement.scrollTop;
+//            if(iScrollTop<=0){
+//                clearInterval(timer);
+//            }
+//            window.scrollTo(0,iScrollTop-=50);
+//        },100);
+//    };
+
+
+
+//    jq方法
+
+    $(function () {
+        $('#top').on('click',function(){
+            var timer=setInterval(function(){
+                console.log(1);
+                var iScrollTop=$('body').scrollTop();
+                if(iScrollTop<=0){
+                clearInterval(timer);
+            }
+                $('body').scrollTop (iScrollTop -=50);
+            },100);
+        });
+    });
+
+</script>
+</body>
+</html>

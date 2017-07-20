@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div id="div2">
+    <div id="div1">
+        <div id="div3">hoho</div>
+        <h1 id="h11">haha</h1>
+        <p>hehe</p>
+
+    </div>
+</div>
+<script>
+    var oDiv1=document.getElementById('div1');
+    var oH1=document.getElementById('h11');
+    //    console.log(oDiv1.children);
+    //    console.log(oDiv1.parentNode);
+    //            console.log(oH1.offsetParent);
+    console.log(oH1.nextElementSibling);  //兼容性问题
+
+    var oSpan =document.createElement('span');
+    oSpan.innerHTML ='xixi';
+    //            oDiv1.appendChild(oSpan);
+    //            oDiv1.removeChild(oH1);
+    //              oDiv1.insertBefore(oSpan,oH1);
+    oDiv1.replaceChild(oSpan,oH1);
+
+
+    //封装获取所有当前元素的元素节点的方法
+    /**
+     * @param elem  当前元素
+     * @returns {Array}  返回当前元素的元素节点
+     */
+    function siblings(elem){
+        var elements=elem.parentNode.children;
+        var arr=[];
+        for(var i=0;i<elements.length;i++){
+            if(elements[i]!=elem){
+                arr.push(elements[i]);
+            }
+        }
+        return  arr;
+    }
+
+    /**
+     * 删除给定的元素
+     * @param elem
+     */
+    function remove(elem){
+        elem.parentNode.removeChild(elem);
+    }
+
+    /**
+     * 在给定的当前元素的前面插入一个新元素
+     * @param elem
+     */
+    function before(elem,newNode){
+        elem.parentNode.insertBefore(newNode,elem);
+    }
+
+    /**
+     * 在给定的当前元素的后面插入一个新元素
+     * @param elem
+     * @param newNode
+     */
+    function after(elem,newNode){
+        if(elem.nextSibling){                   //判断它后面是否有下一个兄弟
+            before(elem.nextSibling,newNode);  //如果有 就把它放在这个兄弟的前面
+        }else{
+            elem.parentNode.appendChild(newNode);  // 如果没有，就直接添一个新孩子，也是在这个元素的后面
+        }
+    }
+    after(oH1,oSpan);
+</script>
+</body>
+</html>
+<!--1、常用节点：元素节点 文本节点 属性节点
+2、children是去掉空白的文本节点（空格）
+3、parentnode寻找父元素
+4、offsetparent找离它最近的已定位的父元素
+5、nextsibling意思是下一个兄弟 找兄弟元素 会找到其他注释 空白之类的
+6、nextElementSibling 找下一个元素的兄弟  但它只会找到元素
+7、previoussibling和previouselemnetsibling找前一个兄弟
+8、通过h1找到div3和p
+9、在父元素中插入一个孩子
+10、通过自己的爹把自己干掉
+11、insertbefore (newchild,refchild已存在的孩子）

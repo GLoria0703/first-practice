@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<button id="btn">click</button>
+        <script>
+            var oBtn=document.getElementById('btn');
+
+//            oBtn.onclick=function(){
+//                alert(11);           这是绑定事件
+//            };
+//            oBtn.onclick=null;       取消这个事件
+//            oBtn.onclick=function(){
+//                alert(22);
+//            };
+
+            var fn1=function(){
+                alert(111);
+            };
+//            oBtn.addEventListener('click',fn1,false);
+//            oBtn.removeEventListener('click',fn1,false);
+            //这里的fn1都指向function，地址都是同一个
+
+
+            //        oBtn.addEventListener('click',function(){
+    //                 alert(222);
+    //              },false);
+           oBtn.attachEvent('onclick',fn1);
+            oBtn.detachEvent('onclick',fn1);
+
+//            oBtn.attachEvent('onclick',function(){
+//                alert(222);
+//            });
+
+
+            function addevent(elem,type,fn){
+                if(elem.addEventListener){  //只是判断这个元素是否有addeventlistenenr存在，所以不用加括号。标准浏览器
+                    elem.addEventListener('type',fn,false);
+                }else if(elem.attachEvent){
+                    elem[type+fn]=function(){
+                        fn.call(elem);   //这里的fn就是我们传过来的第三个参数 想让this指向按钮oBTtn,按钮传给了elem
+                    };
+                    elem.attachEvent('on'+click,elem[type+fn]);     //绑的这个function和底下的fn1不是一个（每一个新new出来的function都是不一样的）
+                }else{
+                    elem['on'+type]=fn;
+                }
+            }
+            addevent(
+                  oBtn,'click',function(){
+                    console.log(this);   //fn=function 这里的this有问题 所以调用fn传参数
+                    })
+
+            function removement(elem,type,fn){
+                if(elem.removeEventListener){
+                    elem.removeEventListener(type,fn,false);
+                }else if(elem.detachEvent){
+                    elem.detachEvent('on'+type,elem[type+fn]);  //必须把function传到这里的fn中，这样绑的和移除的才是一个
+                }else{
+                    oBtn['on'+type]=null;
+                }
+            }
+
+            addevent(oBtn,click,fn1);
+            removeEvent(oBtn,click,fn1);
+
+            addevent(oBtn,click,fn2);
+            removeEvent(oBtn,click,fn2);
+
+
+
+
+        </script>
+</body>
+</html>
+<!--/*
+1、addEvenListener:---标准浏览器 添加事件的监听 可以多次绑定不覆盖
+一共三个参数 click，function（）{}，false
+2、attachevent 两个参数 onclick,function（）{} ---ie浏览器
+addevent 给元素绑定事件的  需要3个参数：元素是啥、事件类型、函数
+3、给元素绑定一个事件，首先得知道是给哪个元素绑定，所以需要一个元素
+绑定一个什么事件，是双击还是单击还是鼠标滑过，需要一个事件类型
+处理的函数是啥
+如果是IE 就用attachevent，如果是其他浏览器就用addeventlistener
+能力检测：不管浏览器是哪种，只在意是否支持这个语法，支持我就用它不支持就用别的
+检测这个对象是否有这个属性，如果有这个属性就是支持它然后调用它
+4、type是事件类型所以写click，function是函数所以写fn,写false是固定语法
+5、要是上来就function（aa){}
+alert（this），这个this就是window。如果前面有对象那this就是这个对象
+6、attachevent会把this绑丢，想用call函数把this找回来
+7、removeEventListener、detachEvent-----他俩表示取消绑定，解除事件
+8、局部变量不能在另一个函数中被使用 例如var
+9、属性名不能出现重复，一旦重复就会发生覆盖问题，所以属性名必须唯一
+10、 JS的属性是变的不能写死所以用中括号【】
+
+
+*-->
+
+
+
+
+
+
+
+

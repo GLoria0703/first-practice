@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<!--编写程序，计算10!(即 1*2*3＊·…10）的结果(10的阶乘)。-->
+    <script>
+//        第一种方法 自己调用自己叫递归
+        function factorial(num){
+            if (num==1){
+                return 1;
+            }
+           return num*arguments.callee(num-1);
+        }
+
+//        第二种方法
+        function factorial2(num){
+            var result =1;
+            for (var i= 1;i<=num; i=i++){
+                result *=i;
+            }
+            return result;
+        }
+        document.write(factorial(10)+"<br>");
+        document.write(factorial2(10));
+//编写程序，计算 1!+2!+3!+…..＋10！的结果。
+        var sum=0;
+        for 
+    </script>
+</body>
+</html>

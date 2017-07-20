@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>全选</title>
+</head>
+<body>
+
+    <h1>你最喜欢王凯哪个角色？</h1>
+    <input type="checkbox" name="hobby">萧景琰 //checked是name对象下的属性
+    <input type="checkbox" name="hobby">明诚
+    <input type="checkbox" name="hobby">赵启平
+    <input type="checkbox" name="hobby">陈亦度
+    <br>
+    <button id="check-all">全选</button>
+    <button id="check-no">全不选</button>
+    <button id="check-reverse">反选</button>
+
+    <script src="jquery-1.11.2.js"></script>
+    <script>
+        $(function(){
+            var $hobby=$("input[name=hobby]"); //底下也要用到 缓存起来
+            $("#check-all").on("click",function(){
+                $hobby.prop("checked",true );
+            });
+
+            $("#check-no").on("click",function(){
+                $hobby.prop("checked",false);
+            });
+
+            $("#check-reverse").on("click",function(){
+                $hobby.each(function(index,elem){
+//                    if($(this).prop("checked")){  //当前这个input所对应的check的值  checked是属性
+//                        $(this).prop("checked",false); //如果对应的是true改成false，如果是false改成true
+//                    }else{
+//                        $(this).prop("checked",true); //有问题
+//                    }
+                    this.checked=!this.checked;
+                });
+
+            });
+        });
+
+    </script>
+</body>
+</html>
+<!--
+1、attr:获取匹配的元素集合中的第一个元素的属性的值  或 设置每一个匹配元素的一个或多个属性。
+prop:获取匹配的元素集中第一个元素的属性（property）值或设置每一个匹配元素的一个或多个属性。
+给一个对象添加一个属性
+2、若要检索和更改DOM属性,比如元素的checked, selected, 或 disabled状态，请使用.prop()方法。不能用attr
+3、jq的遍历：each
+each后有个function，（index，elem）两个元素，一个索引，一个元素。
+索引是0.1.2.3  元素是4个input
+
+-->

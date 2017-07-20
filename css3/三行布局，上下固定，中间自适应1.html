@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>上下固定 中间自适应</title>
+    <style>
+        *{
+           margin: 0; 
+            padding: 0;   
+        }
+        #top ,#bottom{
+            height: 100px;
+            width: 100%;
+            position: fixed;
+            background: #3c3b3b;
+        }
+        #top{
+            top: 0;
+        }
+        #bottom{
+            bottom: 0;
+        }
+        #center{
+            background: #fa558f;
+            position: absolute;
+            top:100px;
+            bottom: 100px;
+            left: 0;
+            right: 0;
+            overflow: scroll;
+        }
+    </style>
+</head>
+<body>
+<div id="top"></div>
+<div id="center">
+    王<br>
+    凯<br>
+    是<br>
+    天<br>
+    底<br>
+    下<br>
+    最<br>
+    帅<br>
+    的<br>
+    最<br>
+    有<br>
+    演<br>
+    技<br>
+    的<br>
+    男<br>
+    演<br>
+    员<br>
+</div>
+<div id="bottom"></div>
+</body>
+</html>
