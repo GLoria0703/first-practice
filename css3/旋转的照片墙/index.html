@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>~~旋转照片墙</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body, html{
+            width: 100%;
+            height: 100%;
+        }
+        body{
+            position: relative;
+        }
+        #container{
+            width: 100%;
+            height: 100%;
+            background-image: url(img/bg.jpg);
+        }
+        #container .img{
+            width: 125px;
+            height: 125px;
+            border:5px solid #ffffff;
+            box-shadow: 2px 2px 2px 2px rgba(0,0,0,0.5);
+            position: absolute;
+            top: -500px;
+            left: -500px;
+            transition: all 1s ease;
+            cursor: pointer;
+        }
+        #container span{
+            display: block;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: all 1s ease;
+        }
+    </style>
+</head>
+<body>
+<div id="container"></div>
+
+    <script>
+        var ROW = 4, COL = 6, NUM = ROW * COL,
+                THUMB_WIDTH = 125, THUMB_HEIGHT = 125,
+                BIG_WIDTH = 750, BIG_HEIGHT = 500;
+       var count=0;
+       var oContainer =document.getElementById("container");
+       var aImg;
+
+       //图片预加载
+        for(var i=0;i<NUM;i++){
+            //预加载小图
+            var oThumbImg=new Image();
+            oThumbImg.onload=function(){
+                count++;
+                if(count==NUM * 2){
+                    loadSuccess();
+                }
+            };
+            oThumbImg.src="img/thumbs/"+ (i+1) +".jpg";
+
+            //预加载大图
+            var oBigImg=new Image();
+            oBigImg.onload=function(){
+                count++;
+                if(count==NUM * 2){
+                    loadSuccess();
+                }
+            };
+            oBigImg.src="img/"+(i+1)+".jpg";
+        }
+
+        var index=0;
+        var oImgWidth ; //函数的声明，底下的是函数的赋值
+        var oImgHeight;
+        var fColGap;
+        var fRorGap;
+       function loadSuccess(){
+           //创建24个div，背景图是小的缩略图
+           for(var i=0; i<ROW; i++){
+               for(var j=0; j<COL; j++){
+                   index++;
+                   var oDiv = document.createElement("div");
+                   oDiv.style.backgroundImage = "url(img/thumbs/"+ index +".jpg)";
+                   oDiv.className = "img";
+                   oDiv.innerHTML = "<span></span>";
+                   //自定义属性是个对象，存储当前的位置
+                   oDiv.pos = {
+                       col : j,
+                       row : i
+                   };
+                   oDiv.index = index;//保存图片名称 index是当前文件的名字
+                   oContainer.appendChild(oDiv);
+               }
+           }
+
+           //计算空隙的大小
+            aImg = document.getElementsByClassName("img");//24个div
+            oImgWidth = aImg[0].offsetWidth;
+            oImgHeight = aImg[0].offsetHeight;
+            fColGap = (oContainer.offsetWidth -  oImgWidth * COL) / (COL + 1);
+            fRorGap = (oContainer.offsetHeight - oImgHeight * ROW) / (ROW + 1);
+           for(var i=23; i >= 0; i--){
+               aImg[i].style.transitionDelay = (NUM - i) * 100 + "ms";
+               aImg[i].style.top = (fRorGap + oImgHeight) * aImg[i].pos.row + fRorGap + "px";
+               aImg[i].style.left = (fColGap + oImgWidth) * aImg[i].pos.col + fColGap + "px";
+               aImg[i].style.transform = "rotate("+ (Math.random() * 40 - 20) +"deg)";
+           }
+       }
+
+       var fBigRowGap=(oContainer.offsetHeight-BIG_HEIGHT)/2;
+       var fBigColGap=(oContainer.offsetWidth-BIG_WIDTH)/2;
+       var bFlag = true;//标识位，true表示当前是散开的要合上，false表示当前是合上的要散开
+        oContainer.onclick=function(e){
+            if(this== e.target){  //e.target可能是oContainer/div/span；三种情况：点白边是div、点图片是span、点空是container
+                return false;  //this：container就是空，应该点空没反应，e.target：事件源，属于div
+            }
+            if(bFlag){ //aImg表示div
+                for(var i=0;i<aImg.length;i++){
+                    aImg[i].style.transitionDelay = "0ms";
+                    aImg[i].style.top =fBigRowGap+THUMB_HEIGHT*aImg[i].pos.row+"px";
+                    aImg[i].style.left = fBigColGap+THUMB_WIDTH*aImg[i].pos.col+"px";
+                    aImg[i].style.transform = "rotate(0)";
+                    aImg[i].style.borderWidth = "1px";
+
+                    var oSpan=aImg[i].getElementsByTagName("span")[0];
+                    oSpan.style.opacity=1;
+                    var imgURL;
+                    if(e.target.className=="img"){//div
+                        imgURL= e.target.index;
+                    }else{//span
+                        imgURL= e.target.parentNode.index;
+                    }
+                    oSpan.style.backgroundImage="url(img/"+ imgURL +".jpg)";
+                    oSpan.style.backgroundPosition = -THUMB_WIDTH * aImg[i].pos.col + "px "+ (-THUMB_HEIGHT * aImg[i].pos.row) +"px";
+                    //一个空+一个图片的宽度，两个空+两个图片的宽度
+                }
+            }else{//散开之后再合上
+                    for(var i=0;i<NUM;i++){
+                        aImg[i].style.top = (fRorGap + oImgHeight) * aImg[i].pos.row + fRorGap + "px";
+                        aImg[i].style.left = (fColGap + oImgWidth) * aImg[i].pos.col + fColGap + "px";
+                        aImg[i].style.transform = "rotate("+ (Math.random() * 40 - 20) +"deg)";
+                        aImg[i].style.borderWidth="5px";
+                        var oSpan=aImg[i].getElementsByTagName("span")[0];
+                        oSpan.style.opacity=0;
+                    }
+            }
+            bFlag= !bFlag; //如果刚开始是真，进来就变成false；如果是false就变成true；要有状态的变化
+        };
+
+    </script>
+</body>
+</html>
+<!--
+如果是大写就是常量，不是赋值
+图片预加载
+到达48的次数只有一次 所以不会调用两次
+onload一定要写在src前面
+标识位：就是用来标识图片是展开还是合上
+利用事件委托，给container绑定事件
+思路：
+1、从散开到合上，位置发生变化，用过渡
+2、空的距离=整个的宽度-750除以2；图片位置=第几个图片再加上空的距离
+判断this和事件源是否相等，来判断事件是谁
+parentnode:取到父元素
+看起来是大图片，其实是用精灵图（小图片）定位做的
+精灵图一定是负的，因为要往旁边串图片
+-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

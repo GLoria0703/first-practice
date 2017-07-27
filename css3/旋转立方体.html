@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background: #000;
+            perspective: 1000px;
+        }
+        #container{
+            position: relative;
+            width: 200px;
+            height: 200px;
+            margin: 200px auto;
+            transform-style:preserve-3d ;
+            animation: rotate 2s linear infinite;
+        }
+        .cube{
+            width: 200px;
+            height: 200px;
+            background: rgba(255,255,255,0.6);
+            font-size: 80px;
+            text-align: center;
+            line-height: 200px;
+            border:1px solid #ffffff;
+            border-radius: 5px;
+            position:absolute ;
+        }
+
+
+
+    </style>
+</head>
+<body>
+
+</body>
+<div id="container">
+    <div class="cube one"></div>
+    <div class="cube two"></div>
+    <div class="cube three"></div>
+    <div class="cube four"></div>
+    <div class="cube five"></div>
+    <div class="cube six"></div>
+</div>
+</html>
+<!--
+perspective:指定观察者与「z=0」平面的距离，使具有三维位置变换的元素产生透视效果。
+-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
