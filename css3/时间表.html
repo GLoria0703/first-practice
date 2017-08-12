@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html>
-<head lang="en">
+<html lang="en">
+<head>
     <meta charset="UTF-8">
-    <title>时间表</title>
+    <title>小表盘</title>
     <style>
         *{
             margin: 0;
@@ -14,48 +14,30 @@
         #clock{
             width: 200px;
             height: 200px;
-            border: 1px solid #000000;
+            border: 1px solid;
             border-radius: 50%;
-            margin: 200px auto;
+            margin: 50px auto;
             position: relative;
         }
         #dial li{
             width: 2px;
             height: 6px;
-            background: #000;
+            background: #000000;
             position: absolute;
             left: 100px;
             top: 0;
             transform-origin: 0 100px;
         }
-        /*#dial li:nth-child(1){*/
-
-        /*}*/
-        /*#dial li:nth-child(2){*/
-            /*transform: rotate(6deg);*/
-        /*}*/
-        /*#dial li:nth-child(3){*/
-            /*transform: rotate(12deg);*/
-        /*}*/
-        /*#dial li:nth-child(4){*/
-            /*transform: rotate(18deg);*/
-        /*}*/
-        /*#dial li:nth-child(5){*/
-            /*transform: rotate(24deg);*/
-        /*}*/
-        /*#dial li:nth-child(6){*/
-            /*transform: rotate(30deg);*/
-        /*}*/
-        #dial li:nth-child(5n+1){
-            height:10px ;
+        #dial li:nth-child(5n + 1){
+            height: 10px;
         }
         #hour{
             width: 4px;
-            height: 60px;
-            background: #000;
+            height: 40px;
+            background: #000000;
             position: absolute;
             left: 98px;
-            top: 40px;
+            top: 60px;
         }
         #minute{
             width: 4px;
@@ -73,31 +55,91 @@
             left: 99px;
             top: 30px;
         }
+        #clock div{
+            transform-origin: bottom;
+        }
+       img{
+           width: 200px;
+           height: 200px;
+       }
+        h1{
+            text-align: center;
+         color: blue;
+        }
+        /*#dial li:nth-child(1){
+
+        }
+        #dial li:nth-child(2){
+            transform: rotate(6deg);
+        }
+        #dial li:nth-child(3){
+            transform: rotate(12deg);
+        }
+        #dial li:nth-child(4){
+            transform: rotate(18deg);
+        }
+        #dial li:nth-child(5){
+            transform: rotate(24deg);
+        }
+        #dial li:nth-child(6){
+            transform: rotate(30deg);
+        }*/
     </style>
 </head>
 <body>
+<h1>王凯8.18生日快乐</h1>
 <div id="clock">
     <ul id="dial">
-        <!--<li></li>-->
-        <!--<li></li>-->
-        <!--<li></li>-->
-        <!--<li></li>-->
-        <!--<li></li>-->
-        <!--<li></li>-->
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
     </ul>
     <div id="hour"></div>
     <div id="minute"></div>
     <div id="second"></div>
+    <img src="imgs/wk2.jpg" alt=""/>
+
+
 </div>
+
 <script>
-    oDial=document.getElementById("dial");
-    var lis="";
-    for(var i= 0;i<60;i++){
-        lis+="<li style='transform:rotate("+ i*6  +"deg);' ></li>";
+    var oDial = document.getElementById("dial");
+    var oHour = document.getElementById("hour");
+    var oMinute = document.getElementById("minute");
+    var oSecond = document.getElementById("second");
+    var lis = "";
+    for(var i=0; i<60; i++){
+        /*var oLi = document.createElement("li");
+         oDial.appendChild(oLi);*/
+        lis += "<li style='transform: rotate(" + i * 6 + "deg);'></li>";
+    }
+    oDial.innerHTML = lis;
+
+    run();
+
+    setInterval(run, 1000);
+
+
+
+    function run(){
+        var now = new Date();
+        var second = now.getSeconds();
+        var minute = now.getMinutes() + second / 60;
+        var hour = now.getHours() + minute / 60;
+
+        oHour.style.transform = "rotate("+ (hour * 30 + minute* 30) +"deg)";
+        oMinute.style.transform = "rotate("+ minute * 6 +"deg)";
+        oSecond.style.transform = "rotate("+ second * 6 +"deg)";
+
+
 
     }
-    oDial.innerHTML=lis;
+
 </script>
+
 </body>
 </html>
 <!--
@@ -105,6 +147,10 @@
 2、两个双引号一个给前面一个给后面 ；一个开始一个结束
 3、变量不能放在字符串里面
 4、DOM结构的先后，后面的会把前面的覆盖掉，而不是代码先后顺序
+5、nth-child 找规律的时候常用
+6、transition：过渡 一个值向里一个值得变化 只进行一次
+   animation： 动画 自己可以设置很多次
+7、得先执行一下
 -->
 
 
