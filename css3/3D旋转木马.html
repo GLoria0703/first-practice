@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>3D旋转木马</title>
+</head>
+<body>
+<div id="container"></div>
+<script>
+    var oContainer=document.getElementById("container");
+    var counter=0;//计数器
+    for(var i= 0;i<9;i++){
+        //图片预加载
+        var oImg=new Image();
+        oImg.onload=function(){//onload成功一次加载一次图片
+            counter++;
+        if(counter==9){
+            loadSuccess();
+        }
+        };
+        oImg.src="images/"+ (i+1)+".jpg";
+        oContainer.appendChild(oImg);
+    }
+    function loadSuccess(){
+
+
+    }//图片加载成功的函数
+
+</script>
+</body>
+</html>
+<!--
+思路：图片预加载
+1、container里面添加9个孩子，for循环
+2、创建一个图片对象（创建9个img对象）
+所有带src属性的都有onload事件
+Image 对象的属性 onload 声明了一个事件句柄函数，当图像装载完毕的时候就会调用这个句柄。
+设置onload事件和src的顺序关系：onload在前，src在后
+3、9张图片全部加载完成之后才调用
+
+
+-->
