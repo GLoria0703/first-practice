@@ -1,161 +1,82 @@
-#header {
-    background: url(../img/banner.jpg) no-repeat center center;
+#header{
+    background: url(../img/banner.jpg) no-repeat center;
     height: 600px;
 }
 
-#login a:hover {
-    text-decoration: underline;
-}
-
-#login, #header h1{
-    width:380px;
-    color: #cccccc;
-}
-#login a {
-    color: #fff;
-}
-#main-header #cart {
-    width: 260px;
-    height: 30px;
-    background: #000;
-    opacity: 0.5;
-    filter: alpha(opacity=50);
-    color: #fff;
-    text-align: center;
-    padding: 10px 20px;
-    cursor: pointer;
-    margin-top: 25px;
-    line-height: 30px;
-}
-
-#header img {
-    vertical-align: middle;
-}
-
-.float {
-    float: left;
-}
-
-#main-header {
-    height: 100px;
-    line-height: 100px;
-    width: 100%;
-}
-
-#nav li {
-    width: 190px;
-    height: 40px;
-    background: #fa558f;
-    float: left;
-    text-align: center;
-    line-height: 40px;
-}
-#nav li:hover{
-    background: #ff0000;
-}
-#nav a {
-    color: #00ff00;
-}
-
-#nav.selected {
-    background: #3c3b3b;
-}
-
-#sub-menu {
-    width: 1140px;
-    height: 300px;
-    background: white;
-    margin-left: -190px;
-}
-#main-header p{
-    color:#ffffff;
-    position:relative;
-    right:190px;
-    top:35px;
-}
-#sub-menu div {
-    width: 228px;
-    height: 400px;
-    float: left;
-}
-
-#sub-menu a {
-    width: 100%;
-    height: 30px;
-    display: block;
-}
-
-#sub-menu {
-    display: none;
-}
-
-#makeup:hover #sub-menu {
-    display: block;
-}
-
-#sub-menu a:hover{
-    text-decoration: underline;
-}
+/*  new-product开始  */
 #new-product{
     margin-top: 56px;
-    height:266px;
+    height: 266px;
 }
 #new-product .sale{
-    width:360px;
-    height:210px;
-    float:left;
+    width: 360px;
+    height: 210px;
+    /*position: relative;
+    top: 0;
+    left: 0;*/
+    background-repeat:  no-repeat;
+    float: left;
     margin-right: 30px;
 }
-#new-product .bg3{
-    margin-right: 0;
-}
 #new-product .bg1{
-    background-image:url(../img/bg1.jpg);
+    background-image: url(../img/bg1.jpg);
 }
 #new-product .bg2{
-    background-image:url(../img/bg2.jpg);
+    background-image: url(../img/bg2.jpg);
 }
 #new-product .bg3{
-    background-image:url(../img/bg3.jpg);
+    background-image: url(../img/bg3.jpg);
+    margin-right: 0;
 }
+#new-product .sale h4{
+    /*position: absolute;
+    right: 50px;
+    bottom: 50px;*/
+    margin-top: 150px;
+    margin-left: 200px;
+    color: #fff;
+    font-size: 30px;/* 字体大小 */
+}
+/*  new-product结束  */
 
-#new-product .sale h2{
-    margin-top:150px;
-    margin-left:200px;
-    color:#fff;
-    font-size:30px;
+/* product开始 */
+#product{
+    height: 1000px;
 }
-.box {
+.product-info{
     width: 340px;
     height: 440px;
-    border:1px solid #ccc;
+    border: 1px solid #ccc;
     float: left;
     margin-right: 30px;
     margin-top: 30px;
 }
-.box img{
-    width: 254px;
-    height: 254px;
-    border: 1px; solid-color: #ccc;
-    border-right: 1px solid #ccc;
-    border-bottom: 1px solid #ccc;
+.product-info img{
+    width: 248px;
+    height: 248px;
+    border: 1px solid #ccc;
+    vertical-align: bottom;
 }
-.box .new{
+.product-info .new{
     background: #fa558f;
-    color:#fff;
-    float:right;
+    color: #fff;
+    float: right;
 }
 .product-detail{
-    margin-left:10px;
+    background: #ccc;
+    height: 180px;
+    /*width: 340px;*/
+    padding-left: 10px;
+    padding-top: 10px;
 }
 .product-detail h3{
-    margin-top:10px;
+    /*margin-top: 10px;*/
 }
 .add{
     width: 150px;
     height: 50px;
-    background: blue;
-    color:#fff;
+    background: orange;
+    color: #fff;
     border: 0;
     margin-top: 5px;
     font-size: 20px;
@@ -163,14 +84,16 @@
 .product-detail input{
     width: 150px;
     height: 30px;
-    text-indent:10px;
+    text-indent: 10px;
+    outline: none;
 }
-#product{
-    height: 1000px;
-}
+
+/* product结束 */
+
+/* problem开始 */
 #problem{
-    height: 500px;
-    background: url("../img/banner2.jpg") no-repeat center;
+    height: 400px;
+    background: url(../img/banner2.jpg) no-repeat center;
 }
 #problem .wrapper{
     width: 1000px;
@@ -183,10 +106,10 @@
 }
 .problem-menu li{
     list-style: disc;
-    color: #ff0000;
+    color: #fff;
 }
 .problem-menu li a{
-    color: #ff0000;
+    color: #fff;
 }
 .problem-menu li a:hover{
     text-decoration: underline;
@@ -194,18 +117,12 @@
 .menu-bold{
     font-weight: bolder;
 }
-#footer{
-    height: 82px;
-    background: #fa558f;
-    line-height: 82px;
-}
-#footer h3,#footer h4{
-    color: #fff;
-}
-#footer h3{
-    float: left;
-}
-#footer h4{
-    float: right;
-}
+
+/* problem结束 */
+
+
+
+
+
+
 

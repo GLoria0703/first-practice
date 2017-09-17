@@ -1,97 +1,70 @@
 <!DOCTYPE html>
-<head lang="en">
+<html lang="en">
+<head>
     <meta charset="UTF-8">
-    <title>我的小店</title>
-    <link rel="stylesheet" href="../common.css">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/common.css">
     <link rel="stylesheet" href="css/login.css">
 </head>
 <body>
-<div id="header">
-    <div class="wrapper" >
-        <div id="main-header" class="float">
+    <div id="header">
+    <div class="wrapper">
+        <div id="main-header">
             <div id="login" class="float">
-                <a href="" id="http://www.baidu.com">登录</a>
+                <a href="login.html">登录</a>
             </div>
             <h1 class="float">我的小店</h1>
             <div id="cart" class="float">
-                <span>购物车：￥0.00（0件）</span>
-                <img src="img/cart.png" alt="">
+                <a href="cart.html">购物车：$0.00(0件)</a>
             </div>
             <p>清空购物车</p>
         </div>
         <ul id="nav">
-            <li class="selected"><a href="">首页</a></li>
+            <li class="selected"><a href="index.html">首页</a></li>
             <li id="makeup">
                 <a href="">美妆商城</a>
-                <div id="sub-menu">
-                    <div>
-                        <h4>护肤</h4>
-                        <a href="">洁面</a>
-                        <a href="">化妆水</a>
-                        <a href="">乳液</a>
-                        <a href="">精华</a>
-                        <a href="">面膜</a>
-                        <a href="">面霜</a>
-                    </div>
-                    <div>
-                        <h4>彩妆</h4>
-                        <a href="">底妆</a>
-                        <a href="">眼妆</a>
-                        <a href="">唇妆</a>
-                        <a href="">卸妆</a>
-                        <a href="">美妆工具</a>
-                        <a href="">着装</a>
-                    </div>
-                    <div>
-                        <h4>香水</h4>
-                        <a href="">女士香水</a>
-                        <a href="">男士香水</a>
-                        <a href="">中性香水</a>
-                        <a href="">Q版香水</a>
-                        <a href="">香水套装</a>
-                        <a href="">精油</a>
-                    </div>
-                    <div>
-                        <h4>男士护理</h4>
-                        <a href="">面部护理</a>
-                        <a href="">身体护理</a>
-                        <a href="">护理套装</a>
-                        <a href="">洁面</a>
-                        <a href="">爽肤水</a>
-                        <a href="">男士洗护</a>
-                    </div>
+                <div id="submenu">
+
                 </div>
             </li>
-            <li><a href="">特卖商城</a></li>
-            <li><a href="">新品上市</a></li>
-            <li><a href="">潮人推荐</a></li>
+            <li><a href="special-sale.html">特卖商场</a></li>
+            <li><a href="single.html">新品上市</a></li>
+            <li><a href="products.html">潮人推荐</a></li>
             <li><a href="">进口免税店</a></li>
         </ul>
     </div>
 </div>
-<div id="login-container">
-    <div class="wrapper">
-        <h3>登陆</h3>
-        <form action="">
-            <label>
-                <h5>用户名:</h5>
-                <input type="text">
-            </label>
-            <label>
-                <h5>密码：</h5>
-                <input type="password">
-            </label>
-            <input type="submit" value="login" class="btn">
-            <a href="" id="forget">忘记密码</a>
-        </form>
-        <div id="register">
-            <h3>没有账号？</h3>
-            <p>
-                建立一个账号，享受更流畅的服务。期待您的加入，与我们一起变美丽。么么哒！！！ 小美妞们，快来吧。啦啦啦！！！
-            </p>
-            <button class="btn">新用户注册</button>
+    <div id="login-container">
+        <div class="wrapper">
+            <h2>登陆</h2>
+            <form action="">
+                <label>
+                    <h5>用户名：</h5>
+                    <input type="text">
+                </label>
+                <label>
+                    <h5>密码：</h5>
+                    <input type="password">
+                </label>
+                <input type="submit" value="login" class="btn">
+                <br>
+                <a href="" id="forget">忘记密码?</a>
+            </form>
+            <div id="register">
+                <h3>没有账号？</h3>
+                <p>
+                    建立一个账号，享受更流畅的服务。期待您的加入，与我们一起变美丽。么么哒！！！ 小美妞们，快来吧。啦啦啦！！！
+                </p>
+                <a href="registration.html" class="btn">新用户注册</a>
+            </div>
+        </div>
+
+    </div>
+    <div id="footer">
+        <div class="wrapper">
+            <h3>我的小店</h3>
+            <h4>Copyright © 2017.我的小店</h4>
         </div>
     </div>
-</div>
 </body>
 </html>

@@ -1,123 +1,25 @@
-#header {
-    background: url(../img/banner.jpg) no-repeat center center;
-    height: 600px;
-}
-
-#login a:hover {
-    text-decoration: underline;
-}
-
-#login, #header h1{
-    width:380px;
-    color: #cccccc;
-}
-#login a {
-    color: #fff;
-}
-#main-header #cart {
-    width: 260px;
-    height: 30px;
-    background: #000;
-    opacity: 0.5;
-    filter: alpha(opacity=50);
-    color: #fff;
-    text-align: center;
-    padding: 10px 20px;
-    cursor: pointer;
-    margin-top: 25px;
-    line-height: 30px;
-}
-
-#header img {
-    vertical-align: middle;
-}
-
-.float {
-    float: left;
-}
-
-#main-header {
-    height: 100px;
-    line-height: 100px;
-    width: 100%;
-}
-#nav li {
-    width: 190px;
-    height: 40px;
-    background: #fa558f;
-    float: left;
-    text-align: center;
-    line-height: 40px;
-}
-#nav li:hover{
-    background: #ff0000;
-}
-#nav a {
-    color: #00ff00;
-}
-
-#nav.selected {
-    background: #3c3b3b;
-}
-
-#sub-menu {
-    width: 1140px;
-    height: 300px;
-    background: white;
-    margin-left: -190px;
-}
-#main-header p{
-    color:#ffffff;
-    position:relative;
-    right:190px;
-    top:35px;
-}
-#sub-menu div {
-    width: 228px;
-    height: 400px;
-    float: left;
-}
-
-#sub-menu a {
-    width: 100%;
-    height: 30px;
-    display: block;
-}
-
-#sub-menu {
-    display: none;
-}
-
-#makeup:hover #sub-menu {
-    display: block;
-}
-
-#sub-menu a:hover{
-    text-decoration: underline;
-}
-#header{
-    background: url("shop/img/banner33.jpg") no-repeat center;
-    height: 250px;
-}
 #cart-container{
     height: 600px;
+    background: #efefef;
 }
 #cart-mine{
-    width: 800px;
+    width: 855px;
     height: 504px;
-    float: left;
+    margin-top: 50px;
 }
 #cart-price{
-    width: 270px;
+    width: 280px;
     height: 381px;
+    margin-top: 50px;
 }
 #cart-mine .cosmetic{
-    height: 134px;
     width: 134px;
+    height: 134px;
     float: left;
 }
 #cart-mine .cart-detail{
-    width: 690px;
+    width: 840px;
+    height: 204px;
     margin-top: 30px;
 }
 #cart-mine .close{
@@ -131,8 +33,8 @@
 #cart-mine .price{
     padding-top: 50px;
     padding-bottom: 30px;
-    border-bottom: 1px solid #000000;
-    width: 509px;
+    border-bottom: 1px solid #000;
+    width: 625px;
 }
 #cart-mine .on-sale{
     margin-right: 50px;
@@ -140,7 +42,7 @@
 }
 #cart-mine input[type="number"]{
     width: 82px;
-    height: 20px;
+    height: 34px;
     text-indent: 10px;
     border-radius: 5px;
     border: 1px solid #999;
@@ -155,17 +57,31 @@
 #cart-mine .arrive{
     float: right;
 }
+#cart-price{
+    border-left: 1px solid #000;
+}
 #cart-price .btn{
-    width: 180px;
+    width: 140px;
     height: 40px;
-    color: #ffffff;
+    color: #fff;
     border: 0;
+    font-size: 16px;
+    border-radius: 5px;
+    margin-left: 70px;
+    margin-top: 30px;
+    cursor: pointer;
 }
 #cart-price .continue{
     background: orange;
 }
-#cart-price .submit{
+#cart-price .continue:hover{
     background: #000;
+}
+#cart-price .submit{
+    background: #000000;
+}
+#cart-price .submit:hover{
+    background: orange;
 }
 #cart-price .description{
     margin-top: 40px;
@@ -173,7 +89,7 @@
     margin-left: 70px;
 }
 #cart-price .gap{
-    margin-right: 30px;
+    margin-right: 70px;
 }
 #cart-price .total{
     margin-left: 70px;
@@ -182,5 +98,18 @@
     font-weight: bolder;
 }
 #cart-price .total div{
-    border-top:  1px solid #000000;
+    border-top: 1px solid #000;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
