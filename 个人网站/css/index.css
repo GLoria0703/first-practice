@@ -1,9 +1,24 @@
-#left img{
-    width: 690px;
-    height: 700px;
-}
-h1{
+#header{
+    background: #e0bba8 center no-repeat ;
     height: 50px;
-    color: #333333;
+}
+#main-header span{
+    color: #fefefe;
     text-align: center;
+    line-height: 50px;
+    display: table;
+    width: auto;
+    margin: 0 auto;
+}
+#pic{
+    position:relative;
+    width:400px;
+    height:400px
+}
+#write{
+    position:absolute;
+    width:400px;
+    height:400px;
+    z-indent:2;
+    left:0;top:0
 }

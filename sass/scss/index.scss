@@ -1,0 +1,7 @@
+$aa:#00a6ff;
+$test:"font";
+body{
+  color:$aa;
+  #{$test + -size}:18px;
+  #{$test + -family}:sana;
+}

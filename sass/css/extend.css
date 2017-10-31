@@ -1,0 +1,13 @@
+* {
+  margin: 0;
+  padding: 0; }
+
+body, div {
+  color: #ff6600; }
+  body ul, div ul {
+    background-color: #00ff00; }
+
+div {
+  font-size: 23px; }
+
+/*# sourceMappingURL=extend.css.map */

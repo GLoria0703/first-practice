@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>test</title>
+</head>
+<body>
+    <div id="app">
+        <input type="text" v-model="msg">
+        {{msg}}
+        <button v-on:click="fn">click</button>
+    </div>
+</body>
+<script src="vue.js"></script>
+<script>
+    var vm = new Vue({
+        el:'#app', //大概表示作用域，只有写在div里Vue语法才好用
+        data:{
+            msg:'aaa'  //把数据渲染到页面上
+        },
+        methods:{
+            fn:function(){
+                alert(111);
+            }
+        }
+    });
+</script>
+</html>
+<!--
+vm是变量，返回Vue的对象，对象下面就能获取msg
+-->

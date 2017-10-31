@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>form</title>
+</head>
+<body>
+<div id="app">
+        <input type="radio" v-model="sex" value="m">男
+        <input type="radio" v-model="sex" value="w">女
+        <input type="checkbox" v-model="like" value="季白">季白
+       <input type="checkbox" v-model="like" value="赵启平">赵启平
+       <input type="checkbox" v-model="like" value="明诚">明诚
+
+</div>
+</body>
+<script src="vue.js"></script>
+<script>
+    var vm = new Vue({
+        el:'#app',
+        data:{
+            sex:'m',
+            like:['季白','赵启平'],
+        }
+    })
+
+</script>
+</html>
